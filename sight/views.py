@@ -38,11 +38,14 @@ class InputPostAPIView(APIView):
             for s in sight:
                 Place.objects.create(place=s, input=input)
 
-            return Response({'message': sight})
+            return Response({'message': sight}, status=201)
 
         else:
             return Response(serializer.errors, status=400)
-        
 
-
-        
+    def get(self, request):
+        name = request.GET.get('name', None)
+        if name is None:
+            return Response({"error": "No name provided"}, status=400)
+        else:
+            return Response({"name": name}, status=200)

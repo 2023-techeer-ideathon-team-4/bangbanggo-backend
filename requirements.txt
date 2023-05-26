@@ -9,3 +9,5 @@ openai
 python-dotenv
 urllib3
 django-environ
+selenium
+webdriver_manager
