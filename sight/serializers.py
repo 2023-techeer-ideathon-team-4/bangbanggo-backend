@@ -9,6 +9,7 @@ class PlaceSerializer(serializers.ModelSerializer):
         fields = ['place']
 
 class InputSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Input
         fields = ['address', 'kilo', 'count']

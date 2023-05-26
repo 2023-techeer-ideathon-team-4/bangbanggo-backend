@@ -16,7 +16,6 @@ class InputPostAPIView(APIView):
 
             answer = get_gpt_answer(text)
             answer = answer.split('. ')
-            # print(answer)
 
             sight = []
 
@@ -27,18 +26,17 @@ class InputPostAPIView(APIView):
                 for j in k:
                     sight_data.append(j)
 
-            # print(sight_data)
-
             for i in range(len(sight_data)):
                 for j in range(count+1):
                     if sight_data[i] == str(j):
                         sight.append(sight_data[i + 1])
 
-            # print(sight)
+            print(sight)
 
-            # for i in sight:
-            #     place = Place.objects.create(i)
-            #     Input.objects.create(address=address, kilo=kilo, place=place)
+            input = Input.objects.create(address=address, kilo=kilo, count=count)
+
+            for s in sight:
+                Place.objects.create(place=s, input=input)
 
             return Response({'message': sight})
 
