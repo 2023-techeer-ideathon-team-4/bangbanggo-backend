@@ -6,8 +6,9 @@ class Place(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Input(models.Model):
-    addr = models.CharField(max_length=50)
-    kilo = models.FloatField()
+    address = models.CharField(max_length=50)
+    kilo = models.IntegerField()
+    count = models.IntegerField()
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

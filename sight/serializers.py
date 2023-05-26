@@ -1,15 +1,15 @@
 from rest_framework import serializers
 from .models import Input, Place
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 
 class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
-        fields = '__all__'
+        fields = ['place']
 
 class InputSerializer(serializers.ModelSerializer):
-    place = PlaceSerializer()
-
     class Meta:
         model = Input
-        fields = ['addr', 'kilo', 'place']
+        fields = ['address', 'kilo', 'count']
 
