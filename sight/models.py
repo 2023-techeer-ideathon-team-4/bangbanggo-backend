@@ -1,13 +1,14 @@
 from django.db import models
 
-class Place(models.Model):
-    place = models.CharField(max_length=50)
+class Input(models.Model):
+    address = models.CharField(max_length=50)
+    kilo = models.IntegerField()
+    count = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-class Input(models.Model):
-    addr = models.CharField(max_length=50)
-    kilo = models.FloatField()
-    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+class Place(models.Model):
+    place = models.CharField(max_length=50)
+    input = models.ForeignKey(Input, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

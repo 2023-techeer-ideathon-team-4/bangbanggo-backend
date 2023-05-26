@@ -3,7 +3,7 @@ import openai
 
 # GPT-3 API를 사용하여 질문에 대한 답변 받기
 def get_gpt_answer(question):
-    openai.api_key = os.environ.get('GPT-KEY')
+    openai.api_key = os.getenv('GPT-KEY')
 
     # GPT-3 API 요청
     response = openai.Completion.create(
